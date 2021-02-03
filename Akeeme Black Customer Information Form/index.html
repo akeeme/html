@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- Akeeme Black -->
+<!-- November 20, 2020 -->
+<html>
+<head>
+	<title>Customer Information Form</title>
+	<script>
+		function validation(){
+			var inputName = document.cif.Name.value;
+			var inputEmail = document.cif.Email.value;
+			var inputWebsite = document.cif.Website.value;
+			var inputContinent = document.cif.Continent.value;
+			var inputMonth = document.cif.Month.value;
+			if(inputName.length == 0){
+				alert("Please provide your name!");
+				return false;
+			}
+			if(inputEmail.length == 0){
+				alert("Please provide your email!");
+				return false;
+			}
+			if(inputWebsite.length == 0){
+				alert("Please provide your website");
+				return false;
+			}
+			var options = document.getElementsByName("options[]");
+    
+    		if(options[0].checked==false && options[1].checked==false && options[2].checked==false) {
+        		alert('Please check at least one of the options.');
+        		return false;
+    			}
+
+			var rc_options = document.getElementsByName("rc_options[]");
+    
+			if(rc_options[0].checked==false && rc_options[1].checked==false) {
+				alert('Please check at least one of the options.');
+				return false;
+				}
+			var continent = document.getElementById("continent");
+        		if (continent.value == "") {	
+					alert("Please select a continent");
+					return false;
+			}
+			var month = document.getElementById("month");
+        		if (month.value == "") {	
+					alert("Please select a month");
+					return false;
+			}
+			var week = document.getElementById("week");
+        		if (week.value == "") {	
+					alert("Please select a week");
+					return false;
+			}
+
+			else{
+				alert("Your submission has been received");
+			}
+		}
+	</script>
+
+	<style>
+		#comment{
+			height:10px;
+			width:30%;
+			font-size: 14px;
+			padding: 32px 20px;
+			resize: vertical;
+			text-align: left;
+		}
+		body{
+			background-color: #b5f9ff;
+		}
+		#form{
+			margin:auto;
+			padding:10px;
+			width: 50%;
+			background-color: rgba(235, 235, 235, 0.6);
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="form">
+		<h1>Customer Information Form</h1>
+		<p>Please tell us about yourself so we can help you with your travel</p>
+		<br>
+		<form name = "cif" onsubmit =
+		"return(validation());">
+
+		<label>Your name:</label>
+		<input type = "text" name = "Name">
+		<br><br>
+		<label>Your e-mail:</label>
+		<input type = "email" name = "Email">
+		<br><br>
+		<label>Your Website:</label>
+		<input type = "url" name ="Website">
+		<br><br>
+		<p>Comment:</p>
+		<input id="comment" type="text" name="comment" placeholder="Add your comment here">
+		<br><br>
+		<label>Service:</label>
+		<input type = "checkbox" id = "flight" name = options[]>
+		<label>Flight</label>
+		<input type = "checkbox" id = "hotel" name = options[]>
+		<label>Hotel</label>
+		<input type = "checkbox" id = "car" name = options[]>
+		<label>Car</label>
+		<br><br>
+		<label>Returning customer:</label>
+		<input type = "checkbox" id = "yes" name = rc_options[]>
+		<label>Yes</label>
+		<input type = "checkbox" id = "no" name = rc_options[]>
+		<label>No</label>
+		<br><br>
+		<label>Continent:</label>
+		<select name = "Continent" class="required" id = "continent">
+			<option value="">[Provide your continent]</option>
+			<option value="1">North America</option>
+			<option value = "2">South America</option>
+			<option value = "3">Europe</option>
+			<option value = "4">Antarctica</option>
+			<option value = "5">Australia</option>
+		</select>
+		<br><br>
+		<p>When did you last travel?</p>
+		<label>Month</label>
+		<select name = "Month" class="required" id = "month">
+			<option value="">[Choose your month]</option>
+			<option value="1">January</option>
+			<option value="2">February</option>
+			<option value="3">March</option>
+			<option value="4">April</option>
+			<option value="5">May</option>
+			<option value="6">June</option>
+			<option value="7">July</option>
+			<option value="8">August</option>
+			<option value="9">September</option>
+			<option value="10">October</option>
+			<option value="11">November</option>
+			<option value="12">December</option>
+		</select>
+		<br><br>
+		<p>Choose the week you would prefer for your trip (tours leave every five weeks)</p>
+		<label>Week:</label>
+		<select name = "Week" class="required" id = "week">
+			<option value ="">[Choose your week]</option>
+			<option value ="5">5</option>
+			<option value ="10">10</option>
+			<option value ="15">15</option>
+			<option value ="20">20</option>
+			<option value ="25">25</option>
+			<option value ="30">30</option>
+			<option value ="35">35</option>
+			<option value ="40">40</option>
+			<option value ="45">45</option>
+			<option value ="50">50</option>
+		</select>
+		<br><br>
+		<input type ="submit" value = "Submit">
+
+</form>
+</div>
+</body>
+</html>
