@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Akeeme Black -->
+<html>
+<head>
+	<script>
+		function validation(){
+			var a = document.form.phone.value;
+			if(a==""){
+				alert("Please Enter Your Phone Number");
+				document.form.phone.focus();
+				return false;
+            }
+            if(isNan(a)){
+                alert("Enter a valid phone number (i.e : 044-42046569) ");
+                document.form.phone.focus();
+                return false;
+            }
+            // if((a.length<4) || (a.length>8))
+            // {
+            //     alert("Your Password must be 4-8 characters");
+            //     document.form.pass.select();
+            //     return false;
+            // }
+		}
+    </script>
+    <style>
+        div {
+            text-align: center;
+            margin: auto;
+            margin-top:300px;
+            width: 50%;
+            font-size: 34px;
+            color: white;
+        }
+        .name{
+            width: 50%;
+            height: 50px;
+        }
+        .submit{
+            width:80px;
+            height:50px;
+        }
+        body{
+            background-color:maroon;
+        }
+    </style>
+</head>
+<body>
+    <div>
+	<form name="form" method="post" onsubmit="return validation()">
+		<tr>
+			<td>Phone No:</td>
+			<td><input type="text" name="phone" class="name"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="sub" value="Submit" class="submit"></td>
+		</tr>
+    </form>
+    </div>
+</body>
+</html>
